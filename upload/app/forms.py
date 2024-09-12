@@ -1,5 +1,5 @@
 from django import forms
-from .models import UploadHander as up
+from .models import UploadHandler as up
 
 class UploadForm(forms.ModelForm):
     class Meta:
