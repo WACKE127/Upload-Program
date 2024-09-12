@@ -5,3 +5,6 @@ pip install django
 django-admin startproject upload
 cd upload
 python manage.py startapp uploadapp
+
+sudo apt-get install postgresql
+sudo apt-get install postgresql-contrib
