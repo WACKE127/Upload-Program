@@ -3,7 +3,11 @@ from .forms import UploadForm
 from .models import UploadHandler
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
+from django.contrib import messages
 import os
+
+def home(request):
+    return render(request, "upload_file.html")
 
 def upload_file(request):
     if request.method == 'POST':
@@ -20,7 +24,9 @@ def upload_file(request):
             file_metadata.file_name = file.name
             file_metadata.save()
 
-            return redirect(' ')  # Redirect as needed
+            messages.success(request, 'File uploaded successfully!')
+            return redirect('upload_file')
+            # return render(request, 'upload_file.html', {'form': form}) 
     else:
         form = UploadForm()
     return render(request, 'upload_file.html', {'form': form})
