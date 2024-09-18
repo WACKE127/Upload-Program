@@ -14,8 +14,7 @@ def upload_file(request):
         form = UploadForm(request.POST, request.FILES)
         if form.is_valid():
             file = request.FILES['file']
-            path = default_storage.save('uploads/' + file.name, ContentFile(file.read()))
-            file_path = os.path.join(default_storage.location, path)
+            file_path = os.path.join(default_storage.location, str('uploads/' + file.name))
 
             # Create a UploadHandler instance and populate additional fields
             file_metadata = form.save(commit=False)

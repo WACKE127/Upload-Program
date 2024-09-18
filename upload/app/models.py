@@ -16,8 +16,8 @@ class UploadHandler(models.Model):
     def save(self, *args, **kwargs):
         if not self.file_name:
             self.file_name = os.path.basename(self.file.name)
-        self.file_path = self.file.path
-        self.file_size = self.file.size
+        # self.file_path = self.file.path
+        # self.file_size = self.file.size
         super().save(*args, **kwargs)
 
     def __str__(self):
